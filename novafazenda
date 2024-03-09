@@ -1,0 +1,52 @@
+getgenv().executed = true
+
+-- Auto Reconnect
+    game.CoreGui.RobloxPromptGui.promptOverlay.DescendantAdded:Connect(function()
+        local GUI = game.CoreGui.RobloxPromptGui.promptOverlay:FindFirstChild("ErrorPrompt")
+            if GUI then
+                if GUI.TitleFrame.ErrorTitle.Text == "Disconnected" then
+                    if #game.Players:GetPlayers() <= 1 then
+                        game.Players.LocalPlayer:Kick("\nRejoining...")
+                        wait()
+                        game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+                    else
+                        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+                    end
+                end
+            end
+        end)
+
+
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+wait(1)
+vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+
+local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
+queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/brunogatoso123/brunolindao/main/coisinha'))()")
+
+local Menu = workspace.GameEvents.GoToMenu
+local elder = "Argentinosaurus"
+local baby = "Barosaurus"
+while true do
+    Menu:FireServer(6)
+        workspace.GameEvents.ChangeDinosaur:FireServer(elder)
+        workspace.GameEvents.ChangeDinosaur:FireServer(baby)
+        workspace.GameEvents.ChangeDinosaur:FireServer(elder)
+        workspace.GameEvents.ChangeDinosaur:FireServer(baby)
+        workspace.GameEvents.ChangeDinosaur:FireServer(elder)
+        workspace.GameEvents.ChangeDinosaur:FireServer(elder)
+        workspace.GameEvents.ChangeDinosaur:FireServer(baby)
+        workspace.GameEvents.ChangeDinosaur:FireServer(elder)
+        workspace.GameEvents.ChangeDinosaur:FireServer(baby)
+        workspace.GameEvents.ChangeDinosaur:FireServer(elder)
+        task.wait(5)
+        workspace.GameEvents.ChangeDinosaur:FireServer(baby)
+        workspace.GameEvents.ChangeDinosaur:FireServer(baby)
+        workspace.GameEvents.StartPlayer:FireServer()
+
+        workspace.GameEvents.StartPlayer:FireServer()
+        task.wait(4)
+end
