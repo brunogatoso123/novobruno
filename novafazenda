@@ -28,8 +28,8 @@ local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (f
 queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/brunogatoso123/novobruno/main/novafazenda'))()")
 
 local Menu = workspace.GameEvents.GoToMenu
-local elder = "Yandusaurus"
-local baby = "Barosaurus"
+local elder = "Inverted Argentinosaurus"
+local baby = "Classic Barosaurus"
 while true do
     Menu:FireServer(6)
         workspace.GameEvents.ChangeDinosaur:FireServer(elder)
